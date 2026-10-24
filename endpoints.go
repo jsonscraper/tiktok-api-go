@@ -1,0 +1,59 @@
+package jsonscraper
+
+import("context";"net/url")
+type TikTok struct{*Client}
+func NewTikTok(key string, options Options)(*TikTok,error){c,e:=New(key,options);if e!=nil{return nil,e};return &TikTok{c},nil}
+func(c *TikTok) GetNoWatermarkUrl(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getNoWatermarkUrl",p)}
+func(c *TikTok) GetNoWatermarkUrlById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getNoWatermarkUrlByID",p)}
+func(c *TikTok) GetVideoById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getVideoByID",p)}
+func(c *TikTok) GetVideoByUrl(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getVideoByUrl",p)}
+func(c *TikTok) GetUnshortenedUrl(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUnshortenedUrl",p)}
+func(c *TikTok) GetCommentsByUrl(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getCommentsByUrl",p)}
+func(c *TikTok) GetCommentsById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getCommentsByID",p)}
+func(c *TikTok) GetCommentsReplies(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getCommentsReplies",p)}
+func(c *TikTok) SearchUser(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchUser",p)}
+func(c *TikTok) SearchVideo(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchVideo",p)}
+func(c *TikTok) SearchMusic(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchMusic",p)}
+func(c *TikTok) SearchLive(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchLive",p)}
+func(c *TikTok) SearchHashtag(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchHashtag",p)}
+func(c *TikTok) SearchLocation(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchLocation",p)}
+func(c *TikTok) SearchTop(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchTop",p)}
+func(c *TikTok) SearchInsights(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchInsights",p)}
+func(c *TikTok) SearchCommentSuggestedUsers(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/searchCommentSuggestedUsers",p)}
+func(c *TikTok) GetUserInfo(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserInfo",p)}
+func(c *TikTok) GetUserInfoById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserInfoByID",p)}
+func(c *TikTok) GetBasicUserInfo(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getBasicUserInfo",p)}
+func(c *TikTok) GetUserFeed(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserFeed",p)}
+func(c *TikTok) GetUserFeedById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserFeedByID",p)}
+func(c *TikTok) GetUserId(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserID",p)}
+func(c *TikTok) GetUsernameById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUsernameByID",p)}
+func(c *TikTok) GetTwitterUsername(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getTwitterUsername",p)}
+func(c *TikTok) GetInstagramUsername(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getInstagramUsername",p)}
+func(c *TikTok) GetYoutubeChannel(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getYoutubeChannel",p)}
+func(c *TikTok) GetFollowers(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getFollowers",p)}
+func(c *TikTok) GetFollowersById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getFollowersByID",p)}
+func(c *TikTok) GetFollowing(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getFollowing",p)}
+func(c *TikTok) GetFollowingById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getFollowingByID",p)}
+func(c *TikTok) GetLiveEventInfoById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getLiveEventInfoByID",p)}
+func(c *TikTok) GetHashtagInfo(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getHashtagInfo",p)}
+func(c *TikTok) GetHashtagFeed(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getHashtagFeed",p)}
+func(c *TikTok) GetHashtagFeedById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getHashtagFeedByID",p)}
+func(c *TikTok) GetLocationInfoById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getLocationInfoByID",p)}
+func(c *TikTok) GetLocationFeedById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getLocationFeedByID",p)}
+func(c *TikTok) GetMusicInfo(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getMusicInfo",p)}
+func(c *TikTok) GetMusicFeed(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getMusicFeed",p)}
+func(c *TikTok) GetMusicCharts(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getMusicCharts",p)}
+func(c *TikTok) GetTrendingCategoriesList(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getTrendingCategoriesList",p)}
+func(c *TikTok) GetTrendingFeed(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getTrendingFeed",p)}
+func(c *TikTok) GetStickersById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getStickersByID",p)}
+func(c *TikTok) GetStickerById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getStickerByID",p)}
+func(c *TikTok) GetStickerFeedById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getStickerFeedByID",p)}
+func(c *TikTok) GetUserStories(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserStories",p)}
+func(c *TikTok) GetStoryInfoById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getStoryInfoByID",p)}
+func(c *TikTok) GetUserPlaylists(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserPlaylists",p)}
+func(c *TikTok) GetUserPlaylistById(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getUserPlaylistByID",p)}
+func(c *TikTok) GetVideoByPlaylistId(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getVideoByPlaylistID",p)}
+func(c *TikTok) GetAvailableRankingList(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getAvailableRankingList",p)}
+func(c *TikTok) GetRankingInfo(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getRankingInfo",p)}
+func(c *TikTok) GetLiveInfo(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getLiveInfo",p)}
+func(c *TikTok) GetLiveFeed(ctx context.Context,p url.Values)(*Response,error){return c.Request(ctx,"/getLiveFeed",p)}
