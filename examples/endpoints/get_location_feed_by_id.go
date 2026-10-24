@@ -3,7 +3,7 @@
 // Get videos by location ID. GET /getLocationFeedByID
 // Run this standalone example: go run examples/endpoints/get_location_feed_by_id.go --help
 package main
-import("context";"encoding/json";"errors";"flag";"fmt";"net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
+import("context";"encoding/json";"errors";"flag";"fmt";neturl "net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
 var (
  timeout=flag.Duration("timeout",30*time.Second,"Request timeout, e.g. 30s")
  retries=flag.Int("retries",0,"Optional retries, 0 to 5; may consume quota")
@@ -20,7 +20,7 @@ func run() error {
  if *timeout<=0||*retries<0||*retries>5{return errors.New("use a positive timeout and 0 to 5 retries")}
  client,err:=sdk.NewTikTok(key,sdk.Options{Timeout:*timeout,Retries:*retries});if err!=nil{return err}
  ctx,cancel:=context.WithTimeout(context.Background(),*timeout*time.Duration(*retries+1)+time.Minute);defer cancel()
- query:=url.Values{"location_id":{*location_id}, "count":{*count}, "cursor":{*cursor}, "region":{*region}, "cache_timeout":{*cache_timeout}}
+ query:=neturl.Values{"location_id":{*location_id}, "count":{*count}, "cursor":{*cursor}, "region":{*region}, "cache_timeout":{*cache_timeout}}
  supplied:=map[string]bool{};flag.Visit(func(f *flag.Flag){supplied[f.Name]=true})
  if !supplied["count"]{query.Del("count")}; if !supplied["cursor"]{query.Del("cursor")}; if !supplied["region"]{query.Del("region")}
  response,err:=client.Request(ctx,"/getLocationFeedByID",query);if err!=nil{return err}

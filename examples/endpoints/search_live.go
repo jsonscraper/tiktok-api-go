@@ -3,7 +3,7 @@
 // Search for live by keyword. GET /searchLive
 // Run this standalone example: go run examples/endpoints/search_live.go --help
 package main
-import("context";"encoding/json";"errors";"flag";"fmt";"net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
+import("context";"encoding/json";"errors";"flag";"fmt";neturl "net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
 var (
  timeout=flag.Duration("timeout",30*time.Second,"Request timeout, e.g. 30s")
  retries=flag.Int("retries",0,"Optional retries, 0 to 5; may consume quota")
@@ -20,7 +20,7 @@ func run() error {
  if *timeout<=0||*retries<0||*retries>5{return errors.New("use a positive timeout and 0 to 5 retries")}
  client,err:=sdk.NewTikTok(key,sdk.Options{Timeout:*timeout,Retries:*retries});if err!=nil{return err}
  ctx,cancel:=context.WithTimeout(context.Background(),*timeout*time.Duration(*retries+1)+time.Minute);defer cancel()
- query:=url.Values{"keyword":{*keyword}, "offset":{*offset}, "count":{*count}, "cache_timeout":{*cache_timeout}, "region":{*region}}
+ query:=neturl.Values{"keyword":{*keyword}, "offset":{*offset}, "count":{*count}, "cache_timeout":{*cache_timeout}, "region":{*region}}
  supplied:=map[string]bool{};flag.Visit(func(f *flag.Flag){supplied[f.Name]=true})
  if !supplied["offset"]{query.Del("offset")}; if !supplied["count"]{query.Del("count")}; if !supplied["region"]{query.Del("region")}
  response,err:=client.Request(ctx,"/searchLive",query);if err!=nil{return err}

@@ -3,7 +3,7 @@
 // Get live feed. GET /getLiveFeed
 // Run this standalone example: go run examples/endpoints/get_live_feed.go --help
 package main
-import("context";"encoding/json";"errors";"flag";"fmt";"net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
+import("context";"encoding/json";"errors";"flag";"fmt";neturl "net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
 var (
  timeout=flag.Duration("timeout",30*time.Second,"Request timeout, e.g. 30s")
  retries=flag.Int("retries",0,"Optional retries, 0 to 5; may consume quota")
@@ -19,7 +19,7 @@ func run() error {
  if *timeout<=0||*retries<0||*retries>5{return errors.New("use a positive timeout and 0 to 5 retries")}
  client,err:=sdk.NewTikTok(key,sdk.Options{Timeout:*timeout,Retries:*retries});if err!=nil{return err}
  ctx,cancel:=context.WithTimeout(context.Background(),*timeout*time.Duration(*retries+1)+time.Minute);defer cancel()
- query:=url.Values{"draw_room_id":{*draw_room_id}, "max_time":{*max_time}, "region":{*region}, "cache_timeout":{*cache_timeout}}
+ query:=neturl.Values{"draw_room_id":{*draw_room_id}, "max_time":{*max_time}, "region":{*region}, "cache_timeout":{*cache_timeout}}
  supplied:=map[string]bool{};flag.Visit(func(f *flag.Flag){supplied[f.Name]=true})
  if !supplied["max_time"]{query.Del("max_time")}; if !supplied["region"]{query.Del("region")}
  response,err:=client.Request(ctx,"/getLiveFeed",query);if err!=nil{return err}

@@ -3,7 +3,7 @@
 // Convert short TikTok video URL to full TikTok video URL. GET /getUnshortenedUrl
 // Run this standalone example: go run examples/endpoints/get_unshortened_url.go --help
 package main
-import("context";"encoding/json";"errors";"flag";"fmt";"net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
+import("context";"encoding/json";"errors";"flag";"fmt";neturl "net/url";"os";"strings";"time";sdk "github.com/jsonscraper/tiktok-api-go")
 var (
  timeout=flag.Duration("timeout",30*time.Second,"Request timeout, e.g. 30s")
  retries=flag.Int("retries",0,"Optional retries, 0 to 5; may consume quota")
@@ -17,7 +17,7 @@ func run() error {
  if *timeout<=0||*retries<0||*retries>5{return errors.New("use a positive timeout and 0 to 5 retries")}
  client,err:=sdk.NewTikTok(key,sdk.Options{Timeout:*timeout,Retries:*retries});if err!=nil{return err}
  ctx,cancel:=context.WithTimeout(context.Background(),*timeout*time.Duration(*retries+1)+time.Minute);defer cancel()
- query:=url.Values{"video_url":{*video_url}, "cache_timeout":{*cache_timeout}}
+ query:=neturl.Values{"video_url":{*video_url}, "cache_timeout":{*cache_timeout}}
  supplied:=map[string]bool{};flag.Visit(func(f *flag.Flag){supplied[f.Name]=true})
  
  response,err:=client.Request(ctx,"/getUnshortenedUrl",query);if err!=nil{return err}

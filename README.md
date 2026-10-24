@@ -20,6 +20,7 @@ Official Go client for the [jsonscraper TikTok Scraper API](https://jsonscraper.
 - [Installation](#1-install)
 - [License key and access](#2-get-api-access)
 - [First request](#3-make-your-first-request)
+- [Available methods](#available-methods)
 - [Request examples](#more-request-examples)
 - [Complete example catalogue](#complete-request-example-catalogue)
 - [Endpoint reference](docs/endpoints.md)
@@ -97,6 +98,26 @@ The profile response follows this shape (shortened; fields can be absent or null
 ```
 
 **[Response handling guide](docs/responses.md)** explains the envelope, application errors and identifiers. Profile responses were verified against the live API on 2026-10-25.
+
+## Available methods
+
+54 named API methods are available. Start with these commonly used requests, then open the [complete method reference](docs/endpoints.md) for every method and its parameters.
+
+| Use case | SDK method | Query parameters |
+| --- | --- | --- |
+| Get user info by profile URL or nickname | `GetUserInfo()` | `query`, `region`, `cache_timeout` |
+| Get video info by ID | `GetVideoById()` | `video_id`, `region`, `cache_timeout` |
+| Get non watermarked video url | `GetNoWatermarkUrl()` | `video_url`, `region`, `cache_timeout` |
+| Get comments list by video ID | `GetCommentsById()` | `video_id`, `region`, `cursor`, `count`, `cache_timeout` |
+| Search for video by keyword | `SearchVideo()` | `keyword`, `cursor`, `count`, `cache_timeout`, `date_posted`, `sort_by`, `region` |
+| Search for user by keyword | `SearchUser()` | `keyword`, `cursor`, `count`, `region`, `follower_count`, `profile_type`, `other_pref`, `cache_timeout` |
+| Get user feed by profile URL or nickname | `GetUserFeed()` | `query`, `max_cursor`, `count`, `region`, `with_pinned_posts`, `sort_type`, `cache_timeout` |
+| Get user followers by profile URL or nickname | `GetFollowers()` | `query`, `count`, `min_time`, `cache_timeout` |
+| Get hashtag info by URL or tag name | `GetHashtagInfo()` | `query`, `region`, `cache_timeout` |
+| Get music info by URL or ID | `GetMusicInfo()` | `query`, `region`, `cache_timeout` |
+| Get trending feed | `GetTrendingFeed()` | `region`, `pull_type`, `cache_timeout` |
+
+Each method is documented with a [complete runnable example](examples/README.md). The transport preserves the full response envelope, including application status, payload and optional quota metadata.
 
 ## Find the request you need
 
