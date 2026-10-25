@@ -4,13 +4,19 @@
 [![Go requirements](https://img.shields.io/badge/Go-1.22%2B-00ADD8?logo=go&logoColor=white&style=flat-square)](#quick-start)
 [![Last commit](https://img.shields.io/github/last-commit/jsonscraper/tiktok-api-go?style=flat-square)](https://github.com/jsonscraper/tiktok-api-go/commits)
 [![MIT license](https://img.shields.io/github/license/jsonscraper/tiktok-api-go?style=flat-square)](LICENSE)
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/evelode/workspace/evelode/collection/24862082-d886cc87-4267-4e0c-b57a-2d083add50ad)
 
 A small, configurable client with named methods and ready-to-run examples. Supports **54 TikTok Scraper API methods**.
 
 **Package:** `github.com/jsonscraper/tiktok-api-go` · **[Methods](#main-methods)** · **[Examples](#ready-to-run-examples)** · **[Documentation](docs/guide.md)**
 
-![Quick start: API key, installation, request, JSON](docs/quickstart.svg)
+<picture>
+  <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="docs/quickstart-mobile-dark.svg">
+  <source media="(max-width: 640px)" srcset="docs/quickstart-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/quickstart-dark.svg">
+  <img src="docs/quickstart.svg" alt="Quick start: API key, setup, first request, JSON response" width="880">
+</picture>
 
 ## Quick start
 
