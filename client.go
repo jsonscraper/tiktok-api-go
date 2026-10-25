@@ -43,7 +43,7 @@ func(c *Client) Request(ctx context.Context,path string,params url.Values)(*Resp
  q.Set("license_key",c.key)
  for attempt:=0;attempt<=c.retries;attempt++ {
   req,err:=http.NewRequestWithContext(ctx,"GET",c.baseURL+path+"?"+q.Encode(),nil);if err!=nil{return nil,errors.New("invalid API request")}
-  req.Header.Set("Accept","application/json");req.Header.Set("User-Agent","jsonscraper-go/0.1.0")
+  req.Header.Set("Accept","application/json");req.Header.Set("User-Agent","jsonscraper-go/0.1.1")
   res,err:=c.http.Do(req);if err!=nil {return nil,errors.New("unable to reach jsonscraper API")}
   body,err:=io.ReadAll(res.Body);res.Body.Close();if err!=nil{return nil,errors.New("unable to read API response")}
   if res.StatusCode>=200 && res.StatusCode<300 {return &Response{res.StatusCode,res.Header,body},nil}
