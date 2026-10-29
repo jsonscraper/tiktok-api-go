@@ -45,7 +45,7 @@ This repository contains the **TikTok SDK only**. It calls the hosted jsonscrape
 Requirements: **Go 1.22+**.
 
 ```sh
-go get github.com/jsonscraper/tiktok-api-go@v0.1.1
+go get github.com/jsonscraper/tiktok-api-go@v0.1.2
 ```
 
 The module is installed directly from the versioned GitHub repository.
